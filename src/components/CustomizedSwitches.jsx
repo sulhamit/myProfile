@@ -5,6 +5,7 @@ import Switch from '@mui/material/Switch';
 
 import { useContext } from 'react';
 import { LanguageContext } from '../context/LanguageContext';
+import { DarkModeContext } from '../context/DarkModeContext.jsx';
 
 
 
@@ -72,14 +73,16 @@ const IOSSwitch = styled((props) => (
 
 
 export default function CustomizedSwitches() {
-  const { selectWord, darkButton, darkHandleChange } = useContext(LanguageContext);
+  const { selectWord } = useContext(LanguageContext);
+  const { darkButton, setDarkButton } = useContext(DarkModeContext);
 
   return (
     <FormGroup>
 
       <FormControlLabel
-        control={<IOSSwitch sx={{ m: 1 }} checked={darkButton} onChange={darkHandleChange} />}
+        control={<IOSSwitch sx={{ m: 1 }} />}
         label={!darkButton ? selectWord("LightMode") : selectWord("DarkMode")}
+        onChange={() => setDarkButton(!darkButton)}
       />
 
     </FormGroup>

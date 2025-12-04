@@ -9,7 +9,6 @@ import { DarkModeContext } from '../context/DarkModeContext.jsx';
 const Header = () => {
     const { selectWord } = useContext(LanguageContext);
     const { darkButton, setDarkButton } = useContext(DarkModeContext);
-
     return (
 
         <div className="header">

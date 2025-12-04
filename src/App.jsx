@@ -13,16 +13,15 @@ import en from "./data/en.json";
 
 import { useContext } from 'react';
 import CustomizedSwitches from './components/CustomizedSwitches.jsx';
+import { DarkModeContext } from './context/DarkModeContext.jsx';
 
 function App() {
   const {
     language,
     languageHandleChange,
-
-
     selectWord
   } = useContext(LanguageContext);
-
+  const { darkButton, setDarkButton } = useContext(DarkModeContext);
 
   return (
     <div >
@@ -35,11 +34,8 @@ function App() {
           )}
         </div>
 
-        <div className="dark-switch">
-          <CustomizedSwitches
-
-
-          />
+        <div className="dark-switch" >
+          <CustomizedSwitches onChange={() => setDarkButton(!darkButton)} />
         </div>
 
         <Switch>
